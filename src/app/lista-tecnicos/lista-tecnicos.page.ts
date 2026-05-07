@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ChamadoService } from '../services/chamado.service';
 import {
   IonHeader,
@@ -25,6 +26,7 @@ import {
   styleUrls: ['lista-tecnicos.page.scss'],
   imports: [
     CommonModule,
+    RouterModule,
     IonHeader,
     IonToolbar,
     IonTitle,
