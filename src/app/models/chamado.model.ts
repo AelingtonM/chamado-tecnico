@@ -3,20 +3,20 @@ export interface Chamado {
   titulo: string;
   descricao: string;
   solicitante: string;
+  setor?: string;
   tecnico: string;
   status: StatusChamado;
   prioridade: Prioridade;
-  dataCriacao: Date;
+  dataAbertura: Date;
   dataAtualizacao: Date;
   dataConclusao?: Date;
-  observacoes?: string;
+  observacao?: string;
   categoria: string;
 }
 
 export enum StatusChamado {
   ABERTO = 'Aberto',
-  EM_ANDAMENTO = 'Em Andamento',
-  AGUARDANDO = 'Aguardando',
+  EM_ATENDIMENTO = 'Em atendimento',
   CONCLUIDO = 'Concluído',
   CANCELADO = 'Cancelado'
 }

@@ -46,7 +46,7 @@ export class CadastroTecnicoPage {
   tecnico: any = {
     nome: '',
     especialidade: '',
-    telefone: '',
+    contato: '',
     situacao: 'Ativo'
   };
 
@@ -60,7 +60,7 @@ export class CadastroTecnicoPage {
   salvar(): void {
     this.tentouSalvar = true;
 
-    if (this.tecnico.nome && this.tecnico.telefone) {
+    if (this.tecnico.nome && this.tecnico.especialidade && this.tecnico.contato) {
       this.chamadoService.adicionarTecnico({ ...this.tecnico });
       this.router.navigate(['/lista-tecnicos']);
     }

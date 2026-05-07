@@ -51,8 +51,8 @@ export class CadastroChamadoPage implements OnInit {
     titulo: '',
     descricao: '',
     prioridade: '',
-    data: new Date().toISOString(),
-    tecnico: 'Não atribuído',
+    dataAbertura: new Date().toISOString(),
+    tecnico: '',
     status: 'Aberto'
   };
 
@@ -75,7 +75,8 @@ export class CadastroChamadoPage implements OnInit {
       this.chamado.solicitante &&
       this.chamado.titulo &&
       this.chamado.descricao &&
-      this.chamado.prioridade
+      this.chamado.prioridade &&
+      this.chamado.tecnico
     ) {
       this.chamadoService.adicionarChamado({ ...this.chamado });
       this.router.navigate(['/lista-chamados']);

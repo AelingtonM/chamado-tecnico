@@ -57,6 +57,19 @@
       <p class="error-msg">Selecione uma prioridade.</p>
     </ion-text>
 
+    <!-- Técnico Responsável -->
+    <ion-item>
+      <ion-label>Técnico *</ion-label>
+      <ion-select [(ngModel)]="chamado.tecnico" placeholder="Selecione">
+        <ion-select-option *ngFor="let tec of tecnicos" [value]="tec.nome">
+          {{ tec.nome }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !chamado.tecnico">
+      <p class="error-msg">Selecione um técnico responsável.</p>
+    </ion-text>
+
     <!-- Botões -->
     <div class="form-actions">
       <ion-button expand="block" (click)="salvar()" class="btn-salvar">

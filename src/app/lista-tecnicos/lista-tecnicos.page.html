@@ -25,7 +25,7 @@
         <ion-label>
           <h2 class="tecnico-nome">{{ tec.nome }}</h2>
           <p><strong>Especialidade:</strong> {{ tec.especialidade }}</p>
-          <p><strong>Contato:</strong> {{ tec.telefone }}</p>
+          <p><strong>Contato:</strong> {{ tec.contato }}</p>
           <div class="badges">
             <ion-badge [color]="corSituacao(tec.situacao || 'Ativo')">
               {{ tec.situacao || 'Ativo' }}

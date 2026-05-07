@@ -11,37 +11,40 @@ export class ChamadoService {
       titulo: 'Computador não liga',
       descricao: 'O computador da recepção não está ligando desde ontem.',
       solicitante: 'Maria Silva',
+      setor: 'Recepção',
       tecnico: 'João Santos',
       status: 'Aberto',
       prioridade: 'Alta',
-      data: '2026-05-01'
+      dataAbertura: '2026-05-01'
     },
     {
       id: 2,
       titulo: 'Impressora sem conexão',
       descricao: 'A impressora do 2º andar não aparece na rede.',
       solicitante: 'Carlos Oliveira',
+      setor: 'Financeiro',
       tecnico: 'Ana Costa',
-      status: 'Em Andamento',
+      status: 'Em atendimento',
       prioridade: 'Média',
-      data: '2026-05-06'
+      dataAbertura: '2026-05-06'
     },
     {
       id: 3,
       titulo: 'Instalação de software',
       descricao: 'Necessário instalar pacote Office no notebook novo.',
       solicitante: 'Pedro Almeida',
+      setor: 'RH',
       tecnico: 'João Santos',
       status: 'Concluído',
       prioridade: 'Baixa',
-      data: '2026-04-20'
+      dataAbertura: '2026-04-20'
     }
   ];
 
   public tecnicos: any[] = [
-    { id: 1, nome: 'João Santos', especialidade: 'Hardware', telefone: '(11) 99999-1111' },
-    { id: 2, nome: 'Ana Costa', especialidade: 'Redes', telefone: '(11) 99999-2222' },
-    { id: 3, nome: 'Lucas Pereira', especialidade: 'Software', telefone: '(11) 99999-3333' }
+    { id: 1, nome: 'João Santos', especialidade: 'Hardware', contato: '(11) 99999-1111', situacao: 'Ativo' },
+    { id: 2, nome: 'Ana Costa', especialidade: 'Redes', contato: '(11) 99999-2222', situacao: 'Ativo' },
+    { id: 3, nome: 'Lucas Pereira', especialidade: 'Software', contato: '(11) 99999-3333', situacao: 'Inativo' }
   ];
 
   constructor() {}
