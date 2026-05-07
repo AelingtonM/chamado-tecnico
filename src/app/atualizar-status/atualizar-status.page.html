@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="chamado ? '/detalhes-chamado/' + chamado.id : '/lista-chamados'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Atualizar Status</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding status-content">
+
+  <!-- Chamado não encontrado -->
+  <div class="empty-state" *ngIf="!chamado">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <p>Chamado não encontrado.</p>
+    <ion-button size="small" routerLink="/lista-chamados">Voltar à Lista</ion-button>
+  </div>
+
+  <!-- Formulário -->
+  <div class="form-container" *ngIf="chamado">
+
+    <!-- Info do chamado -->
+    <div class="chamado-info">
+      <h2>{{ chamado.titulo }}</h2>
+      <p><strong>ID:</strong> {{ chamado.id }} &bull; <strong>Solicitante:</strong> {{ chamado.solicitante }}</p>
+    </div>
+
+    <!-- Status atual -->
+    <div class="status-atual">
+      <ion-label>Status Atual</ion-label>
+      <ion-badge [color]="corStatus(chamado.status)">{{ chamado.status }}</ion-badge>
+    </div>
+
+    <!-- Novo Status -->
+    <ion-item>
+      <ion-label>Novo Status *</ion-label>
+      <ion-select [(ngModel)]="novoStatus" placeholder="Selecione">
+        <ion-select-option value="Aberto">Aberto</ion-select-option>
+        <ion-select-option value="Em atendimento">Em atendimento</ion-select-option>
+        <ion-select-option value="Concluído">Concluído</ion-select-option>
+        <ion-select-option value="Cancelado">Cancelado</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !novoStatus">
+      <p class="error-msg">Selecione um novo status.</p>
+    </ion-text>
+
+    <!-- Observação -->
+    <ion-item>
+      <ion-label position="floating">Observação</ion-label>
+      <ion-textarea [(ngModel)]="observacao" rows="4" placeholder="Adicione uma observação..."></ion-textarea>
+    </ion-item>
+
+    <!-- Botões -->
+    <div class="form-actions">
+      <ion-button expand="block" (click)="salvar()" class="btn-salvar">
+        <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+        Salvar Alteração
+      </ion-button>
+      <ion-button expand="block" fill="outline" (click)="cancelar()" class="btn-cancelar">
+        Cancelar
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>

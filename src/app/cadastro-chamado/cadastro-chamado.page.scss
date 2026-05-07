@@ -1,0 +1,41 @@
+.form-content {
+  --background: #f4f6fb;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 16px auto;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+  ion-item {
+    --background: transparent;
+    --border-color: #e0e0e0;
+    margin-bottom: 4px;
+  }
+}
+
+.error-msg {
+  font-size: 12px;
+  margin: 2px 0 10px 16px;
+}
+
+.form-actions {
+  margin-top: 28px;
+
+  .btn-salvar {
+    --background: #1e3c72;
+    --border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .btn-cancelar {
+    --border-radius: 8px;
+    --color: #1e3c72;
+    --border-color: #1e3c72;
+    font-weight: 600;
+  }
+}

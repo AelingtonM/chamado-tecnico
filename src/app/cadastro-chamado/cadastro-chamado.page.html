@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Chamado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding form-content">
+  <div class="form-container">
+
+    <!-- Solicitante -->
+    <ion-item>
+      <ion-label position="floating">Solicitante *</ion-label>
+      <ion-input type="text" [(ngModel)]="chamado.solicitante"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !chamado.solicitante">
+      <p class="error-msg">O campo solicitante é obrigatório.</p>
+    </ion-text>
+
+    <!-- Setor -->
+    <ion-item>
+      <ion-label position="floating">Setor</ion-label>
+      <ion-input type="text" [(ngModel)]="chamado.setor"></ion-input>
+    </ion-item>
+
+    <!-- Título -->
+    <ion-item>
+      <ion-label position="floating">Título *</ion-label>
+      <ion-input type="text" [(ngModel)]="chamado.titulo"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !chamado.titulo">
+      <p class="error-msg">O campo título é obrigatório.</p>
+    </ion-text>
+
+    <!-- Descrição -->
+    <ion-item>
+      <ion-label position="floating">Descrição *</ion-label>
+      <ion-textarea [(ngModel)]="chamado.descricao" rows="4"></ion-textarea>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !chamado.descricao">
+      <p class="error-msg">O campo descrição é obrigatório.</p>
+    </ion-text>
+
+    <!-- Prioridade -->
+    <ion-item>
+      <ion-label>Prioridade *</ion-label>
+      <ion-select [(ngModel)]="chamado.prioridade" placeholder="Selecione">
+        <ion-select-option value="Baixa">Baixa</ion-select-option>
+        <ion-select-option value="Média">Média</ion-select-option>
+        <ion-select-option value="Alta">Alta</ion-select-option>
+        <ion-select-option value="Urgente">Urgente</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !chamado.prioridade">
+      <p class="error-msg">Selecione uma prioridade.</p>
+    </ion-text>
+
+    <!-- Botões -->
+    <div class="form-actions">
+      <ion-button expand="block" (click)="salvar()" class="btn-salvar">
+        Salvar Chamado
+      </ion-button>
+      <ion-button expand="block" fill="outline" routerLink="/menu" class="btn-cancelar">
+        Cancelar
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

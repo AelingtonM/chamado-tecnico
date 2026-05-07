@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de Chamados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding list-content">
+
+  <!-- Mensagem lista vazia -->
+  <div class="empty-state" *ngIf="chamados.length === 0">
+    <ion-icon name="document-text-outline"></ion-icon>
+    <p>Nenhum chamado cadastrado.</p>
+    <ion-button routerLink="/cadastro-chamado" size="small">
+      Cadastrar Chamado
+    </ion-button>
+  </div>
+
+  <!-- Lista de chamados -->
+  <ion-list *ngIf="chamados.length > 0" class="chamado-list">
+    <ion-item-sliding *ngFor="let chamado of chamados">
+      <ion-item class="chamado-item">
+        <ion-label>
+          <h2 class="chamado-titulo">{{ chamado.titulo }}</h2>
+          <p><strong>Solicitante:</strong> {{ chamado.solicitante }}</p>
+          <p><strong>Técnico:</strong> {{ chamado.tecnico }}</p>
+          <div class="badges">
+            <ion-badge [color]="corPrioridade(chamado.prioridade)">
+              {{ chamado.prioridade }}
+            </ion-badge>
+            <ion-badge [color]="corStatus(chamado.status)">
+              {{ chamado.status }}
+            </ion-badge>
+          </div>
+        </ion-label>
+        <div class="item-actions" slot="end">
+          <ion-button fill="clear" size="small" (click)="verDetalhes(chamado.id)">
+            <ion-icon name="eye-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" size="small" color="danger" (click)="excluir(chamado.id)">
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-item>
+
+      <!-- Slide para excluir -->
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="excluir(chamado.id)">
+          <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Resumo dos Chamados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding resumo-content">
+
+  <!-- Total geral -->
+  <ion-card class="total-card">
+    <ion-card-content>
+      <div class="total-container">
+        <ion-icon name="documents-outline"></ion-icon>
+        <div>
+          <p class="total-label">Total de Chamados</p>
+          <h1 class="total-valor">{{ totalChamados }}</h1>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Por Status -->
+  <h2 class="section-title">Por Status</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of porStatus">
+        <ion-card class="stat-card">
+          <ion-card-content>
+            <ion-icon [name]="item.icone" [style.color]="item.cor"></ion-icon>
+            <h3 class="stat-valor" [style.color]="item.cor">{{ item.valor }}</h3>
+            <p class="stat-label">{{ item.label }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Por Prioridade -->
+  <h2 class="section-title">Por Prioridade</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of porPrioridade">
+        <ion-card class="stat-card">
+          <ion-card-content>
+            <ion-icon [name]="item.icone" [style.color]="item.cor"></ion-icon>
+            <h3 class="stat-valor" [style.color]="item.cor">{{ item.valor }}</h3>
+            <p class="stat-label">{{ item.label }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

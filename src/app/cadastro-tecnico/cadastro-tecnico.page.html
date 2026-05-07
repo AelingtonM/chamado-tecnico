@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Técnico</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding form-content">
+  <div class="form-container">
+
+    <!-- Nome -->
+    <ion-item>
+      <ion-label position="floating">Nome *</ion-label>
+      <ion-input type="text" [(ngModel)]="tecnico.nome"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !tecnico.nome">
+      <p class="error-msg">O campo nome é obrigatório.</p>
+    </ion-text>
+
+    <!-- Especialidade -->
+    <ion-item>
+      <ion-label>Especialidade</ion-label>
+      <ion-select [(ngModel)]="tecnico.especialidade" placeholder="Selecione">
+        <ion-select-option value="Hardware">Hardware</ion-select-option>
+        <ion-select-option value="Software">Software</ion-select-option>
+        <ion-select-option value="Rede">Rede</ion-select-option>
+        <ion-select-option value="Impressora">Impressora</ion-select-option>
+        <ion-select-option value="Sistema interno">Sistema interno</ion-select-option>
+        <ion-select-option value="Outros">Outros</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Contato -->
+    <ion-item>
+      <ion-label position="floating">Contato *</ion-label>
+      <ion-input type="text" [(ngModel)]="tecnico.telefone"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="tentouSalvar && !tecnico.telefone">
+      <p class="error-msg">O campo contato é obrigatório.</p>
+    </ion-text>
+
+    <!-- Situação -->
+    <ion-item>
+      <ion-label>Situação</ion-label>
+      <ion-select [(ngModel)]="tecnico.situacao">
+        <ion-select-option value="Ativo">Ativo</ion-select-option>
+        <ion-select-option value="Inativo">Inativo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Botões -->
+    <div class="form-actions">
+      <ion-button expand="block" (click)="salvar()" class="btn-salvar">
+        Salvar Técnico
+      </ion-button>
+      <ion-button expand="block" fill="outline" routerLink="/menu" class="btn-cancelar">
+        Cancelar
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

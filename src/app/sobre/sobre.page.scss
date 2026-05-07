@@ -1,0 +1,74 @@
+.sobre-content {
+  --background: #f4f6fb;
+}
+
+.sobre-header {
+  text-align: center;
+  padding: 32px 0 24px;
+
+  .sobre-logo {
+    font-size: 72px;
+    color: #1e3c72;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e3c72;
+    margin: 0 0 6px;
+  }
+
+  .versao {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+  }
+}
+
+.info-card {
+  max-width: 600px;
+  margin: 0 auto 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+  ion-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e3c72;
+  }
+
+  ion-item {
+    --background: transparent;
+    --padding-start: 0;
+  }
+
+  .field-label {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  h3 {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    white-space: normal;
+    line-height: 1.5;
+  }
+}
+
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 8px 0;
+
+  ion-chip {
+    font-weight: 600;
+    font-size: 13px;
+  }
+}

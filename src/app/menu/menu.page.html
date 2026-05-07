@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Menu Principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding menu-content">
+  <div class="menu-header">
+    <ion-icon name="construct-outline" class="menu-logo"></ion-icon>
+    <h2>Chamados Técnicos</h2>
+    <p>Selecione uma opção</p>
+  </div>
+
+  <ion-grid class="menu-grid">
+    <!-- Linha 1: Cadastro e Lista de Chamados -->
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" class="menu-btn" (click)="navegarPara('/cadastro-chamado')">
+          <div class="btn-content">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            <span>Cadastro de Chamado</span>
+          </div>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="menu-btn" (click)="navegarPara('/lista-chamados')">
+          <div class="btn-content">
+            <ion-icon name="list-outline"></ion-icon>
+            <span>Lista de Chamados</span>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Linha 2: Cadastro e Lista de Técnicos -->
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" class="menu-btn" (click)="navegarPara('/cadastro-tecnico')">
+          <div class="btn-content">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <span>Cadastro de Técnico</span>
+          </div>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="menu-btn" (click)="navegarPara('/lista-tecnicos')">
+          <div class="btn-content">
+            <ion-icon name="people-outline"></ion-icon>
+            <span>Lista de Técnicos</span>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Linha 3: Resumo e Sobre -->
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" class="menu-btn" (click)="navegarPara('/resumo')">
+          <div class="btn-content">
+            <ion-icon name="bar-chart-outline"></ion-icon>
+            <span>Resumo dos Chamados</span>
+          </div>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="menu-btn" (click)="navegarPara('/sobre')">
+          <div class="btn-content">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>Sobre</span>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Linha 4: Sair -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" color="danger" class="menu-btn btn-sair" (click)="sair()">
+          <div class="btn-content">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <span>Sair</span>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

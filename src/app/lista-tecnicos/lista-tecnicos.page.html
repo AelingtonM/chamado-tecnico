@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de Técnicos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding list-content">
+
+  <!-- Lista vazia -->
+  <div class="empty-state" *ngIf="tecnicos.length === 0">
+    <ion-icon name="people-outline"></ion-icon>
+    <p>Nenhum técnico cadastrado.</p>
+    <ion-button routerLink="/cadastro-tecnico" size="small">
+      Cadastrar Técnico
+    </ion-button>
+  </div>
+
+  <!-- Lista de técnicos -->
+  <ion-list *ngIf="tecnicos.length > 0" class="tecnico-list">
+    <ion-item-sliding *ngFor="let tec of tecnicos">
+      <ion-item class="tecnico-item">
+        <ion-label>
+          <h2 class="tecnico-nome">{{ tec.nome }}</h2>
+          <p><strong>Especialidade:</strong> {{ tec.especialidade }}</p>
+          <p><strong>Contato:</strong> {{ tec.telefone }}</p>
+          <div class="badges">
+            <ion-badge [color]="corSituacao(tec.situacao || 'Ativo')">
+              {{ tec.situacao || 'Ativo' }}
+            </ion-badge>
+          </div>
+        </ion-label>
+        <ion-button fill="clear" size="small" color="danger" slot="end" (click)="excluir(tec.id)">
+          <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <!-- Slide para excluir -->
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="excluir(tec.id)">
+          <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

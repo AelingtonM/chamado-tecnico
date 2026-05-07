@@ -1,0 +1,37 @@
+<ion-content class="ion-padding login-content">
+  <div class="login-container">
+    <div class="login-header">
+      <ion-icon name="construct-outline" class="login-icon"></ion-icon>
+      <h1>Chamados Técnicos</h1>
+      <p>Faça login para continuar</p>
+    </div>
+
+    <div class="login-form">
+      <ion-item>
+        <ion-label position="floating">Usuário</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="usuario"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input
+          type="password"
+          [(ngModel)]="senha"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="mensagemErro">
+        <p class="error-msg text-center">{{ mensagemErro }}</p>
+      </ion-text>
+
+      <ion-button expand="block" (click)="entrar()" class="btn-entrar">
+        Entrar
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
