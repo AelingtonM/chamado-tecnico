@@ -75,6 +75,16 @@ export class ListaChamadosPage implements OnInit {
     this.carregarChamados();
   }
 
+  concluir(id: number): void {
+    const chamado = this.chamados.find(c => c.id === id);
+    if (chamado) {
+      // Passa a observação atual ou uma mensagem padrão para não sobrescrever com vazio
+      const obs = chamado.observacao ? chamado.observacao : 'Chamado encerrado diretamente pela lista.';
+      this.chamadoService.atualizarStatus(id, 'Concluído', obs);
+      this.carregarChamados();
+    }
+  }
+
   corPrioridade(prioridade: string): string {
     switch (prioridade) {
       case 'Urgente': return 'danger';
@@ -88,7 +98,7 @@ export class ListaChamadosPage implements OnInit {
   corStatus(status: string): string {
     switch (status) {
       case 'Aberto': return 'primary';
-      case 'Em Andamento': return 'warning';
+      case 'Em atendimento': return 'warning';
       case 'Concluído': return 'success';
       case 'Cancelado': return 'danger';
       default: return 'medium';

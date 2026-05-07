@@ -36,6 +36,11 @@
           </div>
         </ion-label>
         <div class="item-actions" slot="end">
+          <!-- Botão de concluir rápido -->
+          <ion-button fill="clear" size="small" color="success" (click)="concluir(chamado.id)" *ngIf="chamado.status !== 'Concluído' && chamado.status !== 'Cancelado'">
+            <ion-icon name="checkmark-circle-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          
           <ion-button fill="clear" size="small" (click)="verDetalhes(chamado.id)">
             <ion-icon name="eye-outline" slot="icon-only"></ion-icon>
           </ion-button>
@@ -45,8 +50,11 @@
         </div>
       </ion-item>
 
-      <!-- Slide para excluir -->
+      <!-- Slide para excluir ou concluir -->
       <ion-item-options side="end">
+        <ion-item-option color="success" (click)="concluir(chamado.id)" *ngIf="chamado.status !== 'Concluído' && chamado.status !== 'Cancelado'">
+          <ion-icon name="checkmark-circle-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
         <ion-item-option color="danger" (click)="excluir(chamado.id)">
           <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
         </ion-item-option>
